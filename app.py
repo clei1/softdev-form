@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 my_app = Flask(__name__)
 
-@app.route("/", methods = ['GET','POST'])
+@my_app.route("/", methods = ['GET','POST'])
 def root():
     print request.header;
     print request.method;
@@ -10,7 +10,7 @@ def root():
     print request.form;
     return render_template('form.html')
 
-@app.route("/response", methods = ['GET','POST'])
+@my_app.route("/response", methods = ['GET','POST'])
 def response():
     return render_template("response.html", username = request.form["data"], method = request.method)
 
